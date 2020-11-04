@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background-image: radial-gradient(circle at top, #1f3756, #141539);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body .container {
+  text-align: center;
+}
+
+button {
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  padding: .75rem 2rem;
+  border-radius: 8px;
+  font-size: .8rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  border: 1px solid white;
+  background-color: #fff;
+  color: #3b4363;
+  text-decoration: underline;
+}
+
+.login {
+  height: 90vh;
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.login img {
+  margin: 70px 0;
+  width: 300px;
+}
+
+.login input[type=text] {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 25px;
+  padding-left: 15px;
+  font-size: 18px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1.5px solid white;
+  color: #eac100;
+}
+
+.login input[type=text]:focus {
+  outline: none;
+}
+
+.login input[type=text]::-webkit-input-placeholder {
+  color: #e9e9e9;
+  font-size: 14px;
+}
+
+.login input[type=text]:-ms-input-placeholder {
+  color: #e9e9e9;
+  font-size: 14px;
+}
+
+.login input[type=text]::-ms-input-placeholder {
+  color: #e9e9e9;
+  font-size: 14px;
+}
+
+.login input[type=text]::placeholder {
+  color: #e9e9e9;
+  font-size: 14px;
+}
+
+.login input[type=submit] {
+  padding: 1rem 3rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #3b4363;
+  margin-top: 70px;
+  border: 1.5px solid white;
+  cursor: pointer;
+}
+
+.login input[type=submit]:active {
+  outline: none;
+}
+
+.login input[type=submit]:hover {
+  background-color: transparent;
+  color: white;
+  border: 1.5px solid white;
+  outline: none;
+  text-decoration: underline;
+}
+/*# sourceMappingURL=index.min.css.map */

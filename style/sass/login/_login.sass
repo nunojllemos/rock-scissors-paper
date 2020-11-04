@@ -1,0 +1,47 @@
+// dependencies
+@import '../variables'
+
+.login
+  height: 90vh
+  width: 80%
+  max-width: 600px
+  margin: 0 auto
+  text-align: center
+  img
+    margin: 70px 0
+    width: 300px
+  input[type=text]
+    width: 100%
+    height: 50px
+    margin-bottom: 25px
+    padding-left: 15px
+    font-size: 18px
+    background-color: transparent
+    border: none
+    border-bottom: 1.5px solid white
+    color: #eac100
+    &:focus
+      outline: none
+    &::placeholder
+      color: #e9e9e9
+      font-size: 14px
+  input[type=submit]
+    padding: 1rem 3rem
+    border-radius: 5px
+    border: none
+    background-color: #fff
+    text-transform: uppercase
+    letter-spacing: 2px
+    font-weight: $veryBold
+    color: $darkText
+    margin-top: 70px
+    border: 1.5px solid white
+    cursor: pointer
+    &:active
+      outline: none
+    &:hover
+      background-color: transparent
+      color: white
+      border: 1.5px solid white
+      outline: none
+      text-decoration: underline
