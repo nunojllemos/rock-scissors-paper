@@ -2,6 +2,10 @@
 @import '../variables'
 
 // login page
+form
+  overflow: hidden
+  padding-top: 15px
+
 .login
   height: 90vh
   width: 80%
@@ -21,6 +25,11 @@
     border: none
     border-bottom: 1.5px solid white
     color: #eac100
+    // background-image: url('../../../images/icon-cancel.svg')
+    // background-size: 15px
+    // background-repeat: no-repeat
+    // background-position-x: 97% 
+    // background-position-y: 25px 
     &:focus
       outline: none
     &::placeholder
@@ -46,3 +55,41 @@
       border: 1.5px solid white
       outline: none
       text-decoration: underline
+
+// for Effects
+// label
+.label-top
+  position: absolute
+  top: -10px
+  font-size: .8rem
+  left: 22px
+  color: rgba(255, 255, 255, .3)
+  font-weight: $regular
+  transition: top .3s, left .3s, font-size .3s
+  user-select: none
+  z-index: -1
+
+.label
+  position: absolute
+  top: 20px
+  left: 20px
+  color: white
+  font-weight: $regular
+  user-select: none
+  transition: top .3s, left .3s, font-size .3s
+  z-index: -1
+
+// add clear button to input
+.clear-button
+  background-image: url('../../../images/icon-cancel.svg')
+  background-size: 15px
+  background-repeat: no-repeat
+  background-position-x: 97%
+  background-position-y: 17px
+
+// input border
+.login form .input-border
+  border-bottom: 1.5px solid #eac100
+  position: absolute
+  left: -100%
+  transition: left .5s

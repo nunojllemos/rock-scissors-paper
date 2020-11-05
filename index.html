@@ -11,23 +11,31 @@
 			<!--LOGIN-->
 			<div class="login">
 				<img src="images/logo.svg" alt="Rock Scissors Paper lettering logo" />
-				<form>
-					<input type="text" id="username" placeholder="Your name" />
-					<input type="text" id="cpu" placeholder="Opponents name" />
-					<input type="submit" value="Play now" />
+				<form autocomplete="off">
+					<div style="position: relative">
+						<label class="user-label label" for="username">Your name</label>
+						<input type="text" name="username" id="username-input" />
+						<input type="text" name="username" class="input-border" />
+					</div>
+					<div style="position: relative">
+						<label class="cpu-label label" for="cpu">CPU name</label>
+						<input type="text" id="cpu-input" name="cpu" />
+						<input type="text" name="username" class="input-border" />
+					</div>
+					<input type="submit" value="Play now" id="login" />
 				</form>
 			</div>
 			<div class="game">
 				<!--HEADER-->
-				<!-- <header>
+				<header>
 					<img src="images/logo.svg" alt="Rock Scissors Paper lettering logo" />
 					<div class="scoreboard">
 						<p>SCORE</p>
-						<p class="score">12</p>
+						<p class="score"><span id="score">0</span></p>
 					</div>
-				</header> -->
+				</header>
 				<!--SELECT AREA-->
-				<!-- <div class="select">
+				<div class="select">
 					<div class="up">
 						<div class="donut paper">
 							<div class="semi-circle">
@@ -50,30 +58,26 @@
 							</div>
 						</div>
 					</div>
-				</div> -->
+				</div>
 				<!--PLAY AREA-->
-				<!-- <div class="play">
+				<div class="play">
 					<div class="p1-play">
 						<div class="badge">
-							<div class="donut rock">
-								<div class="semi-circle">
-									<img src="./images/icon-rock.svg" alt="rock hand sign" />
-								</div>
-							</div>
+							<!-- <div class="shadow"></div> -->
 						</div>
 						<p><span id="username"></span> picked</p>
 					</div>
 					<div class="winner">
-						<h1><span id="winner"></span> WIN</h1>
+						<h1 id="winner"></h1>
 						<button class="play-again">PLAY AGAIN</button>
 					</div>
 					<div class="cpu-play">
 						<div class="badge">
-							<div class="shadow"></div>
+							<!-- <div class="shadow"></div> -->
 						</div>
-						<p><span id="cpu">cpu</span> picked</p>
+						<p><span id="cpu"></span> picked</p>
 					</div>
-				</div> -->
+				</div>
 			</div>
 			<!--RULES-->
 			<button class="btn-rules">RULES</button>
@@ -89,5 +93,7 @@
 				</div>
 			</div>
 		</div>
+		<script src="./scripts/app.js"></script>
+		<script src="./scripts/effects.js"></script>
 	</body>
 </html>

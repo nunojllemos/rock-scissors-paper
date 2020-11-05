@@ -3,15 +3,16 @@
 
 // header element
 header
+  display: none
+  // display: flex
+  align-items: center
+  justify-content: space-between
   width: 85%
   max-width: 500px
   border: 3px solid $headerOutline
   border-radius: 10px
   margin: 25px auto 0 auto
   padding: 15px
-  display: flex
-  align-items: center
-  justify-content: space-between
   img
     width: 90px
     margin-left: 10px
@@ -28,6 +29,7 @@ header
     p:first-child
       color: $scoreText
       font-size: .65rem
+      font-weight: $veryBold
       letter-spacing: 1px
       margin-top: 8px
     .score
