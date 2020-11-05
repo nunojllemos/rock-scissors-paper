@@ -1,0 +1,77 @@
+@media screen and (min-width: 376px)
+  // header
+  header
+    max-width: 700px
+    img
+      width: 130px
+    .scoreboard
+      width: 100px
+      height: 80px
+      .score
+        font-size: 3rem
+  // play area      
+  .play
+    margin-top: 80px
+    max-width: 1000px
+    grid-template-columns: repeat(3, 33%)
+    grid-template-rows: 300px
+    .winner
+      grid-area: 1 / 2 / 2 / 3
+      margin-top: 0
+      h1
+        font-size: 3rem
+      .play-again
+        padding: 1rem 2.5rem
+    .p1-play, .cpu-play
+      display: flex
+      flex-direction: column-reverse
+      justify-self: center
+    .badge
+      height: 270px
+    p
+      font-size: 1.2rem
+      letter-spacing: 2px
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,.6))
+  // select area
+  .select
+    background-size: 45%
+    .up
+      justify-content: space-around
+  .donut
+    width: 200px
+    height: 200px
+    .semi-circle
+      width: 155px
+      height: 155px
+      img
+        width: 70px
+  // rules
+  .btn-rules
+    right: 50px
+  .rules-bg
+    width: 100vw
+    height: 100vh
+    background-color: rgba(0,0,0,0.35)
+    position: absolute
+    top: 0
+    left: 0
+    // display: flex
+    justify-content: center
+    align-items: center
+  .rules
+    width: 400px
+    height: 400px
+    position: relative
+    border-radius: 15px
+    padding: 25px
+    img
+      width: 300px
+    h2
+      text-align: start
+      margin: 0 0 35px 0
+      font-size: 1.9rem
+    .close
+      position: absolute
+      top: 35px
+      right: 25px
+      margin: 0

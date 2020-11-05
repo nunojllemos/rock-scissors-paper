@@ -3,9 +3,9 @@
 
 // gradients
 $background: radial-gradient(circle at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%))
-$scissors: linear-gradient(hsl(39, 89%, 49%) to hsl(40, 84%, 53%))
-$paper: linear-gradient(hsl(230, 89%, 62%) to hsl(230, 89%, 65%))
-$rock: linear-gradient(hsl(349, 71%, 52%) to hsl(349, 70%, 56%))
+$scissors: linear-gradient(hsl(39, 89%, 49%) , hsl(40, 84%, 53%))
+$paper: linear-gradient(hsl(230, 89%, 62%) , hsl(230, 89%, 65%))
+$rock: linear-gradient(hsl(349, 71%, 52%) , hsl(349, 70%, 56%))
 
 // colors
 $darkText: hsl(229, 25%, 31%)
@@ -21,5 +21,10 @@ $veryBold: 700
 @mixin flex-center()
   display: flex
   flex-direction: column
+  justify-content: center
+  align-items: center
+
+@mixin flex-row-center()
+  display: flex
   justify-content: center
   align-items: center

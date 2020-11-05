@@ -1,7 +1,8 @@
 // dependencies
 @import '../variables'
 
-button
+// rules button
+.btn-rules
   border: 1px solid white
   background-color: transparent
   color: white
@@ -11,8 +12,31 @@ button
   letter-spacing: 2px
   font-weight: $veryBold
   cursor: pointer
+  position: absolute
+  bottom: 50px
+  right: calc(50% - (119.39px / 2))
   &:hover
     border: 1px solid white
     background-color: #fff
     color: $darkText
     text-decoration: underline
+
+// rules page
+.rules-bg
+  display: none
+.rules
+  display: none
+  width: 100vw
+  height: 100vh
+  background-color: #fff
+  overflow: auto
+  position: absolute
+  top: 0
+  h2
+    font-size: 2.2rem
+    color: $darkText
+    margin: 120px
+  .close
+    display: block
+    width: 20px
+    margin: 150px auto 0 auto

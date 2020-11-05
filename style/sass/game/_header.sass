@@ -1,0 +1,36 @@
+//dependencies
+@import '../variables'
+
+// header element
+header
+  width: 85%
+  max-width: 500px
+  border: 3px solid $headerOutline
+  border-radius: 10px
+  margin: 25px auto 0 auto
+  padding: 15px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  img
+    width: 90px
+    margin-left: 10px
+  .scoreboard
+    background-color: #fff
+    border-radius: 5px
+    width: 75px
+    height: 70px
+    filter: drop-shadow(0 1px 1px black)
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-evenly
+    p:first-child
+      color: $scoreText
+      font-size: .65rem
+      letter-spacing: 1px
+      margin-top: 8px
+    .score
+      font-size: 2.3rem
+      font-weight: $veryBold
+      color: #616161
