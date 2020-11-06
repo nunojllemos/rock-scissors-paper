@@ -13,6 +13,7 @@
 body
   width: 100vw
   height: 100vh
+  overflow: hidden
   font-family: $font
   background-image: $background
   background-position: center
@@ -21,3 +22,28 @@ body
     text-align: center
   .game
     overflow: auto
+
+// page transition effect
+.page-transition
+  position: absolute
+  width: 100vw
+  height: 100vh
+  background-color: $yellow
+  left: -100%
+  z-index: 99
+
+.slide
+  animation: slide .75s
+  animation-iteration-count: 1
+  animation-fill-mode: forwards
+
+// animation 
+@keyframes slide
+  0%
+    left: -100%
+  40%
+    left: 0%
+  60%
+    left: 0%
+  100%
+    left: 100%

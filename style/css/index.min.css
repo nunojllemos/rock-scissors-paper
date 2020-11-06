@@ -16,6 +16,7 @@
 body {
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   font-family: "Barlow Semi Condensed", sans-serif;
   background-image: radial-gradient(circle at top, #1f3756, #141539);
   background-position: center;
@@ -28,6 +29,54 @@ body .container {
 
 body .game {
   overflow: auto;
+}
+
+.page-transition {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: #eac100;
+  left: -100%;
+  z-index: 99;
+}
+
+.slide {
+  -webkit-animation: slide .75s;
+          animation: slide .75s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes slide {
+  0% {
+    left: -100%;
+  }
+  40% {
+    left: 0%;
+  }
+  60% {
+    left: 0%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes slide {
+  0% {
+    left: -100%;
+  }
+  40% {
+    left: 0%;
+  }
+  60% {
+    left: 0%;
+  }
+  100% {
+    left: 100%;
+  }
 }
 
 .btn-rules {
@@ -137,14 +186,16 @@ form {
   padding: 1rem 3rem;
   border-radius: 5px;
   border: none;
-  background-color: #fff;
+  background-color: #eac100;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 700;
   color: #3b4363;
   margin-top: 70px;
-  border: 1.5px solid white;
+  border: 1.5px solid #eac100;
   cursor: pointer;
+  -webkit-transition: background-color .25s, color .25s;
+  transition: background-color .25s, color .25s;
 }
 
 .login input[type=submit]:active {
@@ -153,10 +204,9 @@ form {
 
 .login input[type=submit]:hover {
   background-color: transparent;
-  color: white;
-  border: 1.5px solid white;
+  color: #eac100;
+  border: 1.5px solid #eac100;
   outline: none;
-  text-decoration: underline;
 }
 
 .label-top {
@@ -190,12 +240,15 @@ form {
   z-index: -1;
 }
 
-.clear-button {
-  background-image: url("../../../images/icon-cancel.svg");
-  background-size: 15px;
-  background-repeat: no-repeat;
-  background-position-x: 97%;
-  background-position-y: 17px;
+.login form div .cancel {
+  position: absolute;
+  margin: 0;
+  width: 10px;
+  height: 10px;
+  top: 20px;
+  left: 95%;
+  display: none;
+  cursor: pointer;
 }
 
 .login form .input-border {
@@ -404,7 +457,7 @@ header .scoreboard .score {
 .play .play-again {
   padding: 1rem 3rem;
   margin-top: 15px;
-  border: none;
+  border: 1px solid white;
   background-color: #fff;
   color: #3b4363;
   font-size: .9rem;
@@ -412,6 +465,39 @@ header .scoreboard .score {
   letter-spacing: 1px;
   border-radius: 7px;
   cursor: pointer;
+  -webkit-transition: background-color .3s, color .3s;
+  transition: background-color .3s, color .3s;
+}
+
+.play .play-again:hover {
+  background-color: transparent;
+  color: white;
+}
+
+#reset {
+  padding: .75rem 2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #bcbcbc;
+  font-size: .8rem;
+  font-weight: 700;
+  color: #3b4363;
+  letter-spacing: 2px;
+  position: absolute;
+  bottom: 105px;
+  left: calc(50% - (116.7px / 2));
+  cursor: pointer;
+  -webkit-transition: background-color .3s, -webkit-transform .3s;
+  transition: background-color .3s, -webkit-transform .3s;
+  transition: transform .3s, background-color .3s;
+  transition: transform .3s, background-color .3s, -webkit-transform .3s;
+  display: none;
+}
+
+#reset:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  background-color: #ffffff;
 }
 
 .donut {
@@ -423,6 +509,10 @@ header .scoreboard .score {
   -webkit-box-shadow: 0px -5px rgba(0, 0, 0, 0.4) inset;
           box-shadow: 0px -5px rgba(0, 0, 0, 0.4) inset;
   cursor: pointer;
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -436,6 +526,11 @@ header .scoreboard .score {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.donut:hover {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
 }
 
 .donut .semi-circle {
@@ -462,6 +557,42 @@ header .scoreboard .score {
 
 .donut .semi-circle img {
   width: 40px;
+  -webkit-animation: rotate .5s;
+          animation: rotate .5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  50% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  100% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  50% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  100% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
 }
 
 @media screen and (min-width: 376px) {
@@ -479,12 +610,15 @@ header .scoreboard .score {
     font-size: 3rem;
   }
   .play {
-    margin-top: 80px;
+    margin-top: 50px;
     max-width: 1000px;
     -ms-grid-columns: (33%)[3];
         grid-template-columns: repeat(3, 33%);
-    -ms-grid-rows: 300px;
-        grid-template-rows: 300px;
+    -ms-grid-rows: 560px;
+        grid-template-rows: 560px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .play .winner {
     -ms-grid-row: 1;

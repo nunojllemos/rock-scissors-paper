@@ -24,12 +24,7 @@ form
     background-color: transparent
     border: none
     border-bottom: 1.5px solid white
-    color: #eac100
-    // background-image: url('../../../images/icon-cancel.svg')
-    // background-size: 15px
-    // background-repeat: no-repeat
-    // background-position-x: 97% 
-    // background-position-y: 25px 
+    color: $yellow
     &:focus
       outline: none
     &::placeholder
@@ -39,22 +34,22 @@ form
     padding: 1rem 3rem
     border-radius: 5px
     border: none
-    background-color: #fff
+    background-color: $yellow
     text-transform: uppercase
     letter-spacing: 2px
     font-weight: $veryBold
     color: $darkText
     margin-top: 70px
-    border: 1.5px solid white
+    border: 1.5px solid $yellow
     cursor: pointer
+    transition: background-color .25s, color .25s
     &:active
       outline: none
     &:hover
       background-color: transparent
-      color: white
-      border: 1.5px solid white
+      color: $yellow
+      border: 1.5px solid $yellow
       outline: none
-      text-decoration: underline
 
 // for Effects
 // label
@@ -79,17 +74,20 @@ form
   transition: top .3s, left .3s, font-size .3s
   z-index: -1
 
-// add clear button to input
-.clear-button
-  background-image: url('../../../images/icon-cancel.svg')
-  background-size: 15px
-  background-repeat: no-repeat
-  background-position-x: 97%
-  background-position-y: 17px
+// cancel button
+.login form div .cancel
+  position: absolute
+  margin: 0
+  width: 10px
+  height: 10px
+  top: 20px
+  left: 95%
+  display: none
+  cursor: pointer
 
 // input border
 .login form .input-border
-  border-bottom: 1.5px solid #eac100
+  border-bottom: 1.5px solid $yellow
   position: absolute
   left: -100%
   transition: left .5s

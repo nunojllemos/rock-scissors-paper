@@ -8,7 +8,9 @@
 	</head>
 	<body>
 		<div class="container">
-			<!--LOGIN-->
+			<!-- PAGE TRANSITION -->
+			<div class="page-transition"></div>
+			<!-- LOGIN -->
 			<div class="login">
 				<img src="images/logo.svg" alt="Rock Scissors Paper lettering logo" />
 				<form autocomplete="off">
@@ -16,11 +18,13 @@
 						<label class="user-label label" for="username">Your name</label>
 						<input type="text" name="username" id="username-input" />
 						<input type="text" name="username" class="input-border" />
+						<img src="./images/icon-cancel.svg" alt="" class="cancel" />
 					</div>
 					<div style="position: relative">
 						<label class="cpu-label label" for="cpu">CPU name</label>
 						<input type="text" id="cpu-input" name="cpu" />
 						<input type="text" name="username" class="input-border" />
+						<img src="./images/icon-cancel.svg" alt="" class="cancel" />
 					</div>
 					<input type="submit" value="Play now" id="login" />
 				</form>
@@ -62,9 +66,7 @@
 				<!--PLAY AREA-->
 				<div class="play">
 					<div class="p1-play">
-						<div class="badge">
-							<!-- <div class="shadow"></div> -->
-						</div>
+						<div class="badge"></div>
 						<p><span id="username"></span> picked</p>
 					</div>
 					<div class="winner">
@@ -72,14 +74,14 @@
 						<button class="play-again">PLAY AGAIN</button>
 					</div>
 					<div class="cpu-play">
-						<div class="badge">
-							<!-- <div class="shadow"></div> -->
-						</div>
+						<div class="badge"></div>
 						<p><span id="cpu"></span> picked</p>
 					</div>
 				</div>
 			</div>
-			<!--RULES-->
+			<!-- RESET -->
+			<button id="reset">RESET</button>
+			<!-- RULES -->
 			<button class="btn-rules">RULES</button>
 			<div class="rules-bg">
 				<div class="rules">

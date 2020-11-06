@@ -1,11 +1,17 @@
 // elements
 const inputs = document.querySelectorAll("input[type=text]:first-of-type");
+const cancelButtons = document.querySelectorAll(".cancel");
 
-//events
+/* EVENTS */
 // add events on inputs
 inputs.forEach((input, i) => {
 	// on focus event
 	input.addEventListener("focus", (e) => {
+		// hide cancel button
+		if (e.target.value === "") {
+			cancelButton[i].style.display = "none";
+		}
+
 		// label goes top
 		e.target.parentElement.children[0].classList.add("label-top");
 		e.target.parentElement.children[0].classList.remove("label");
@@ -20,6 +26,7 @@ inputs.forEach((input, i) => {
 		if (e.target.value === "") {
 			e.target.parentElement.children[0].classList.remove("label-top");
 			e.target.parentElement.children[0].classList.add("label");
+			cancelButtons[i].style.display = "none";
 		}
 
 		// set border to white if input is empty
@@ -31,3 +38,16 @@ inputs.forEach((input, i) => {
 		e.target.parentElement.children[2].style.left = "-100%";
 	});
 });
+
+const resetLogin = () => {
+	inputs.forEach((input) => {
+		// set labels down
+		input.parentElement.children[0].classList.add("label");
+		input.parentElement.children[0].classList.remove("label-top");
+		// set border white
+		input.parentElement.children[2].style.left = "-100%";
+		input.parentElement.children[1].style.borderBottom = "1.5px solid white";
+		// hide cancel button
+		input.parentElement.children[3].style.display = "none";
+	});
+};

@@ -1,10 +1,11 @@
-// elements
+/* VARIABLES */
 // login elements
 const loginButton = document.getElementById("login");
 const cpuInput = document.querySelector("#cpu-input");
 const usernameInput = document.querySelector("#username-input");
 const loginArea = document.querySelector(".login");
-const inputsText = document.querySelectorAll("input[type=text]");
+const inputsText = document.querySelectorAll("input[type=text]:first-of-type");
+const cancelButton = document.querySelectorAll(".cancel");
 
 // rules
 const rulesButton = document.querySelector(".btn-rules");
@@ -24,11 +25,15 @@ const cpu = document.querySelector("#cpu");
 const username = document.querySelector("#username");
 const winner = document.querySelector("#winner");
 const playAgain = document.querySelector(".play-again");
+const reset = document.querySelector("#reset");
+
+// effect elements
+const pageTransition = document.querySelector(".page-transition");
 
 // game state
 let game = {
 	score: 0,
-	stage: "select",
+	stage: "login",
 	winner: "",
 	player: {
 		name: "Player 1",
@@ -40,7 +45,12 @@ let game = {
 	},
 };
 
-// events
+/* EVENTS */
+//reset
+reset.addEventListener("click", () => {
+	resetGame();
+});
+
 // rules
 rulesButton.addEventListener("click", (e) => {
 	e.preventDefault();
@@ -63,6 +73,10 @@ rulesButton.addEventListener("click", (e) => {
 // login event
 loginButton.addEventListener("click", (e) => {
 	e.preventDefault();
+
+	// set game stage
+	game.stage = "select";
+
 	// validation inputs
 	if (usernameInput.value !== "") {
 		game.player.name = usernameInput.value;
@@ -73,23 +87,34 @@ loginButton.addEventListener("click", (e) => {
 		cpu.innerText = cpuInput.value;
 	}
 
+	// slid effect
+	slide();
+
 	// hide login area
 	loginArea.style.display = "none";
 
 	// show game area
-	header.style.display = "flex";
-	selectArea.style.display = "block";
+	setTimeout(() => {
+		header.style.display = "flex";
+		reset.style.display = "block";
+		selectArea.style.display = "block";
+	}, 500);
 });
 
 // add clear icon to inputs
-inputsText.forEach((input) => {
+inputsText.forEach((input, i) => {
 	input.addEventListener("keyup", (e) => {
 		if (e.target.value !== "") {
-			e.target.classList.add("clear-button");
+			cancelButton[i].style.display = "block";
 		} else {
-			e.target.classList.remove("clear-button");
+			cancelButton[i].style.display = "none";
 		}
 	});
+});
+
+// clear input on button click
+cancelButton.forEach((button) => {
+	button.addEventListener("click", (e) => clearInput(e));
 });
 
 // select event
@@ -109,14 +134,19 @@ donut.forEach((donut) => {
 				}
 			}
 
+			// slide page transition
+			slide();
+
 			// hide select area
 			selectArea.style.display = "none";
 
-			// show play area
-			playArea.style.display = "grid";
+			setTimeout(() => {
+				// show play area
+				playArea.style.display = "grid";
 
-			// play game
-			play();
+				// play game
+				play();
+			}, 500);
 		}
 	});
 });
@@ -125,16 +155,73 @@ donut.forEach((donut) => {
 playAgain.addEventListener("click", (e) => {
 	e.preventDefault();
 
+	// set page transition
+	slide();
+
 	// hide play area
 	playArea.style.display = "none";
 
-	// show select area
-	selectArea.style.display = "block";
+	setTimeout(() => {
+		// show select area
+		selectArea.style.display = "block";
+	}, 500);
+
+	// set game stage
+	game.stage = "select";
 });
 
-// functions
+/* FUNCTIONS */
+// reset
+const resetGame = () => {
+	// set stage to login
+	game.stage = "login";
+
+	// slide page transition
+	slide();
+
+	setTimeout(() => {
+		// reset UI
+		resetUI();
+
+		// FUNCTIONALITY changes
+		game = {
+			score: 0,
+			stage: "login",
+			winner: "",
+			player: {
+				name: "Player 1",
+				option: "",
+			},
+			cpu: {
+				name: "cpu",
+				option: "",
+			},
+		};
+	}, 500);
+};
+
+// reset UI login
+const resetUI = () => {
+	// UI changes
+	// show login area
+	loginArea.style.display = "block";
+	// hide other areas
+	header.style.display = "none";
+	selectArea.style.display = "none";
+	playArea.style.display = "none";
+	reset.style.display = "none";
+	// reset inputs
+	usernameInput.value = "";
+	cpuInput.value = "";
+	// reformat inputs style
+	resetLogin();
+};
+
 // play game
 const play = () => {
+	// set game stage
+	game.stage = "play";
+
 	// set cpu option
 	getCpuOption();
 
@@ -204,6 +291,12 @@ const setScore = (winner) => {
 	}
 };
 
+// clear input
+const clearInput = (e) => {
+	e.target.parentElement.children[1].value = "";
+	e.target.parentElement.children[1].focus();
+};
+
 // get option from user
 const getPlayerOption = (el) => {
 	if (el.className.includes("paper")) {
@@ -242,7 +335,7 @@ const setUI = () => {
 
 	// set winner text
 	if (game.winner !== "draw") {
-		winner.innerText = `${game.winner} WIN`;
+		winner.innerHTML = `<span style="color: #eac100;">${game.winner}</span> WIN`;
 	} else {
 		winner.innerText = "DRAW";
 	}
@@ -266,5 +359,53 @@ const setUI = () => {
         <img src="./images/icon-${game.cpu.option}.svg" alt="${game.cpu.option} hand sign" />
       </div>
     </div>
-  `;
+	`;
+
+	if (game.stage === "play") {
+		// set winner donut bigger
+		if (game.winner.toUpperCase() === username.innerText) {
+			// set scale and drop shadow
+			username.parentElement.parentElement.children[0].children[0].style.transform =
+				"scale(1.1)";
+			username.parentElement.parentElement.children[0].children[0].style.filter =
+				"drop-shadow(0 0 50px rgba(255, 255, 255, 0.4)) drop-shadow(0 3px 2px rgba(0,0,0,.4))";
+
+			// set scale and grayscale and stop animation
+			cpu.parentElement.parentElement.children[0].children[0].style.transform =
+				"scale(0.8)";
+			cpu.parentElement.parentElement.children[0].children[0].style.filter =
+				"grayscale(25%)";
+			cpu.parentElement.parentElement.children[0].children[0].children[0].children[0].style.animation =
+				"none";
+		} else if (game.winner.toUpperCase() === cpu.innerText) {
+			// set scale and drop shadow
+			cpu.parentElement.parentElement.children[0].children[0].style.transform =
+				"scale(1.1)";
+			cpu.parentElement.parentElement.children[0].children[0].style.filter =
+				"drop-shadow(0 0 50px rgba(255, 255, 255, 0.4)) drop-shadow(0 3px 2px rgba(0,0,0,.4))";
+			// set scale and grayscale ans stop shake
+			username.parentElement.parentElement.children[0].children[0].style.transform =
+				"scale(0.8)";
+			username.parentElement.parentElement.children[0].children[0].style.filter =
+				"grayscale(25%)";
+			username.parentElement.parentElement.children[0].children[0].children[0].children[0].style.animation =
+				"none";
+		} else {
+			cpu.parentElement.parentElement.children[0].children[0].style.transform =
+				"scale(1)";
+			username.parentElement.parentElement.children[0].children[0].style.transform =
+				"scale(1)";
+		}
+	}
+};
+
+// page transition effect
+const slide = () => {
+	// add animation
+	pageTransition.classList.add("slide");
+
+	// remove animation
+	setTimeout(() => {
+		pageTransition.classList.remove("slide");
+	}, 750);
 };
