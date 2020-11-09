@@ -1,5 +1,5 @@
 # Frontend Mentor - Rock, Paper, Scissors
 
-![Design preview for the Rock, Paper, Scissors coding challenge](./design/desktop-preview.jpg)
-
-## In progress ... 🚀
+<img src="https://postimg.cc/d7xfYQjD" alt="rock sicsorrs paper game gif"/>
+<img src="https://postimg.cc/HrSZwWK3" alt="rock sicsorrs paper game gif"/>
+<img src="https://postimg.cc/HJVSBD1m" alt="rock sicsorrs paper game gif"/>
