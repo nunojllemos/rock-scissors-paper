@@ -1,5 +1,5 @@
 # Frontend Mentor - Rock, Paper, Scissors
 
-<img src="https://postimg.cc/d7xfYQjD" alt="rock sicsorrs paper game gif"/>
-<img src="https://postimg.cc/HrSZwWK3" alt="rock sicsorrs paper game gif"/>
-<img src="https://postimg.cc/HJVSBD1m" alt="rock sicsorrs paper game gif"/>
+<img src="https://i.postimg.cc/hjDRVfJ8/Captura-de-ecra-2020-11-06-a-s-15-51-07.png" alt="rock sicsorrs paper game gif"/>
+<img src="https://i.postimg.cc/N0t3w5xh/Captura-de-ecra-2020-11-06-a-s-15-51-21.png" alt="rock sicsorrs paper game gif"/>
+<img src="https://i.postimg.cc/xdPWjnsX/Captura-de-ecra-2020-11-06-a-s-15-51-35.png" alt="rock sicsorrs paper game gif"/>
